@@ -32,16 +32,16 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+            <form method="post" action="authen_login.php">
               <h1>فرم ورود</h1>
               <div>
-                <input type="text" class="form-control" placeholder="نام کاربری" required="" />
+                <input type="text" name="username" class="form-control" placeholder="نام کاربری" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="رمز ورود" required="" />
+                <input type="password" name="password" class="form-control" placeholder="رمز ورود" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.php">ورود</a>
+                <button type="submit" name="submit" class="btn btn-default submit">ورود</button>
                 <a class="reset_pass" href="#reset">رمز ورود را از دست دادید؟</a>
               </div>
 
@@ -61,6 +61,7 @@
                 </div>
               </div>
             </form>
+            
           </section>
         </div>
         <div id="register" class="animate form registration_form">

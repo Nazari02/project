@@ -102,7 +102,7 @@
                     <a data-toggle="tooltip" data-placement="top" title="قفل" class="lock_btn">
                         <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="خروج" href="login.html">
+                    <a data-toggle="tooltip" data-placement="top" title="خروج" href="login.php">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -134,7 +134,7 @@
                                     </a>
                                 </li>
                                 <li><a href="javascript:;">کمک</a></li>
-                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> خروج</a></li>
+                                <li><a href="login.php"><i class="fa fa-sign-out pull-right"></i> خروج</a></li>
                             </ul>
                         </li>
 
