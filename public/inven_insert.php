@@ -103,6 +103,8 @@ if(isset($_POST['submit']))
                                     <li><a href="customer.php">مشتری</a></li>
                                     <li><a href="supplier.php">تهیه کننده</a></li>
                                     <li><a href="inventory.php">گدام</a></li>
+                                    <li><a href="inven_item_list.php">لست اجناس</a></li>
+                                    <li><a href="purchase_insert.php">خریداری</a></li>
                                     <li><a href="transaction.php">معاملات</a></li>
                             </ul>
 

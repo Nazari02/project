@@ -1,9 +1,9 @@
 
 <?php
 include "db_connect.php";
-//$result = mysqli_query($connection,"SELECT * FROM purchase");
-$query = "SELECT * FROM purchase WHERE inven_id='" . $inven_id . "'";
-$result = mysqli_query($connection,$query);
+$result = mysqli_query($connection,"SELECT * FROM purchase");
+//$query = "SELECT * FROM purchase WHERE inven_id='" . $inven_id . "'";
+//$result = mysqli_query($connection,$query);
 
 
 // Delete a record
@@ -88,7 +88,9 @@ if (isset($_GET['del'])) {
                             <ul class="nav child_menu">
                                     <li><a href="customer.php">مشتری</a></li>
                                     <li><a href="supplier.php">تهیه کننده</a></li>
-                                    <li><a href="#">گدام</a></li>
+                                    <li><a href="inventory.php">گدام</a></li>
+                                    <li><a href="inven_item_list.php">لست اجناس</a></li>
+                                    <li><a href="purchase_insert.php">خریداری</a></li>
                                     <li><a href="transaction.php">معاملات</a></li>
                             </ul>
 
@@ -325,10 +327,17 @@ if (isset($_GET['del'])) {
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th>شماره</th>
-                                <th>نام</th>
-                                <th>موقعیت</th>
-                                <th>علمیات</th>
+                                <th>تاریخ</th>
+                                <th>کتگوری</th>
+                                <th>اسم جنس</th>
+                                <th>مقدار</th>
+                                <th>قیمت اصلی ف.و.</th>
+                                <th>قیمت اصلی مجموعی</th>
+                                <th>مصارفات</th>
+                                <th>قیمت ف.و.</th>
+                                <th>قیمت مجموعی</th>
+                                <th>گدام</th>
+                                <th>عملیات</th>
                             </tr>
                             </thead>
                             <?php
@@ -339,21 +348,28 @@ if (isset($_GET['del'])) {
 
                             <tbody>
                             <tr>
-                                <td><?php echo $row["pur_id"]; ?></td>
-                                <td><?php echo $row["name"]; ?></td>
-                                <td><?php echo $row["location"]; ?></td>
+                                <td><?php echo $row["date"]; ?></td>
+                                <td><?php echo $row["category"]; ?></td>
+                                <td><?php echo $row["item"]; ?></td>
+                                <td><?php echo $row["quantity"]; ?></td>
+                                <td><?php echo $row["unit_price"]; ?></td>
+                                <td><?php echo $row["total_price"]; ?></td>
+                                <td><?php echo $row["expense"]; ?></td>
+                                <td><?php echo $row["unit_price_expense"]; ?></td>
+                                <td><?php echo $row["total_final_price"]; ?></td>
+                                <td><?php echo $row["item"]; ?></td>
                                 <td>
                                                 
                                 <!-- Update button -->
                                                 
                                 <a href="inven_item_list.php?id=<?php echo $row['id']; ?>">
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
                                 data-target=".bs-example-modal-lg"><i class="fa fa-edit"></i> ویرایش
                                 </button></a>
 
                                 <!-- Delete button-->                                               
                                 <a href="inven_item_list.php?del=<?php echo $row['pur_id']; ?>">         
-						        <button type="button" class="btn btn-danger" data-toggle="modal"
+						        <button type="button" class="btn btn-danger btn-block" data-toggle="modal" 
                                 data-target=".bs-example-modal-lg">حذف
                                 </button></a>
                                 
