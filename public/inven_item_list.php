@@ -1,14 +1,16 @@
 
 <?php
 include "db_connect.php";
-$result = mysqli_query($connection,"SELECT * FROM inventory");
+//$result = mysqli_query($connection,"SELECT * FROM purchase");
+$query = "SELECT * FROM purchase WHERE inven_id='" . $inven_id . "'";
+$result = mysqli_query($connection,$query);
 
 
 // Delete a record
 
 if (isset($_GET['del'])) {
 	$id = $_GET['del'];
-	mysqli_query($connection, "DELETE FROM inventory WHERE inven_id=$inven_id");
+	mysqli_query($connection, "DELETE FROM inventory WHERE pur_id=$pur_id");
     $_SESSION['message'] = "Address deleted!";
     header('location: inventory.php');
 }?>
@@ -292,11 +294,7 @@ if (isset($_GET['del'])) {
                 <div class="x_panel">
                     <div class="x_title">
                         <h2>لست گدام
-                        <a href=inven_insert.php>
-                                <button type="button" class="btn btn-light" data-toggle="modal"
-                                data-target=".bs-example-modal-lg">اضافه کردن
-                                </button>
-                            </a>
+                        
                         </h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -341,31 +339,24 @@ if (isset($_GET['del'])) {
 
                             <tbody>
                             <tr>
-                                <td><?php echo $row["inven_id"]; ?></td>
+                                <td><?php echo $row["pur_id"]; ?></td>
                                 <td><?php echo $row["name"]; ?></td>
                                 <td><?php echo $row["location"]; ?></td>
                                 <td>
                                                 
                                 <!-- Update button -->
                                                 
-                                <a href="inven_update.php?id=<?php echo $row['inven_id']; ?>">
+                                <a href="inven_item_list.php?id=<?php echo $row['id']; ?>">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target=".bs-example-modal-lg"><i class="fa fa-edit"></i> ویرایش
                                 </button></a>
 
                                 <!-- Delete button-->                                               
-                                <a href="inventory.php?del=<?php echo $row['inven_id']; ?>">         
+                                <a href="inven_item_list.php?del=<?php echo $row['pur_id']; ?>">         
 						        <button type="button" class="btn btn-danger" data-toggle="modal"
                                 data-target=".bs-example-modal-lg">حذف
                                 </button></a>
                                 
-                                <!-- View button -->
-                                                
-                                <a href="inven_item_list.php?inven_id=<?php echo $row['inven_id']; ?>">
-                                <button type="button" class="btn btn-default" data-toggle="modal"
-                                data-target=".bs-example-modal-lg"> مشاهده
-                                </button></a>
-
 
                                 </td>
                             </tr>

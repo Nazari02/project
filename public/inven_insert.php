@@ -6,14 +6,14 @@ $result = mysqli_query($connection,"SELECT * FROM inventory");
 // Insert into customer 
 if(isset($_POST['submit']))
 {    
-     $totQuantity = $_POST['totQuantity'];
+     $name = $_POST['name'];
      $location = $_POST['location'];
-     $entranceDate = $_POST['entranceDate'];
+     
      
 
 
-     $sql = "INSERT INTO inventory (totQuantity,location,entranceDate)
-     VALUES ('$totQuantity','$location','$entranceDate')";
+     $sql = "INSERT INTO inventory (name,location)
+     VALUES ('$name','$location')";
  
      if (mysqli_query($connection, $sql)) {
         header('Location:inventory.php');
@@ -335,11 +335,11 @@ if(isset($_POST['submit']))
                             <span class="section">اطلاعات شخصی</span>
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">مقدار مجموعی<span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">نام<span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="name" name="totQuantity" class="form-control col-md-7 col-xs-12"
+                                    <input id="name" name="name" class="form-control col-md-7 col-xs-12"
                                            required="required" type="text">
                                 </div>
                             </div>
@@ -352,15 +352,7 @@ if(isset($_POST['submit']))
                                             required="required" type="text">
                                 </div>
                             </div>
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> تاریخ وارده<span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="name" name="entranceDate" class="form-control col-md-7 col-xs-12"
-                                          required="required" type="date">
-                                </div>
-                            </div>
+                            
                             
                             <div class="ln_solid"></div>
                             <div class="form-group">

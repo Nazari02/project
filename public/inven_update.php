@@ -5,10 +5,10 @@ $result = mysqli_query($connection,"SELECT * FROM inventory");
 
  //Update Process 
  if(count($_POST)>0) {
-    mysqli_query($connection,"UPDATE inventory SET totQuantity='" . $_POST['totQuantity'] . "',location='" . $_POST['location'] . "', entranceDate='" . $_POST['entranceDate'] . "' WHERE id='" . $_POST['id'] . "'");
+    mysqli_query($connection,"UPDATE inventory SET name='" . $_POST['name'] . "',location='" . $_POST['location'] . "' WHERE inven_id='" . $_POST['inven_id'] . "'");
     $message = "Record Modified Successfully";
     }
-    $result = mysqli_query($connection,"SELECT * FROM inventory WHERE id='" . $_GET['id'] . "'");
+    $result = mysqli_query($connection,"SELECT * FROM inventory WHERE inven_id='" . $_GET['inven_id'] . "'");
     $row= mysqli_fetch_array($result);
     
     if(!empty($message))
@@ -328,16 +328,16 @@ $result = mysqli_query($connection,"SELECT * FROM inventory");
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="name" name="id" value="<?php echo $row['id']?>" class="form-control col-md-7 col-xs-12"
+                                    <input id="name" name="inven_id" value="<?php echo $row['inven_id']?>" class="form-control col-md-7 col-xs-12"
                                            required="required" type="text">
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">مقدار مجموعی <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">نام <span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="name" name="totQuantity" value="<?php echo $row['totQuantity']; ?>" class="form-control col-md-7 col-xs-12"
+                                    <input id="name" name="name" value="<?php echo $row['name']; ?>" class="form-control col-md-7 col-xs-12"
                                            required="required" type="text">
                                 </div>
                             </div>
@@ -350,15 +350,7 @@ $result = mysqli_query($connection,"SELECT * FROM inventory");
                                             required="required" type="text">
                                 </div>
                             </div>
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">تاریخ وارده <span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="name" name="entranceDate" value="<?php echo $row['entranceDate']?>" class="form-control col-md-7 col-xs-12"
-                                          required="required" type="date">
-                                </div>
-                            </div>
+                            
                         
 
                             <div class="ln_solid"></div>
