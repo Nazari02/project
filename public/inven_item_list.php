@@ -1,7 +1,8 @@
 
 <?php
 include "db_connect.php";
-$result = mysqli_query($connection,"SELECT * FROM purchase");
+$result = mysqli_query($connection,"SELECT c.* , p.* FROM purchase c, inventory p WHERE c.inven_id=p.inven_id");
+//$result = mysqli_query($connection,"SELECT * FROM inventory");
 //$query = "SELECT * FROM purchase WHERE inven_id='" . $inven_id . "'";
 //$result = mysqli_query($connection,$query);
 
@@ -357,7 +358,7 @@ if (isset($_GET['del'])) {
                                 <td><?php echo $row["expense"]; ?></td>
                                 <td><?php echo $row["unit_price_expense"]; ?></td>
                                 <td><?php echo $row["total_final_price"]; ?></td>
-                                <td><?php echo $row["item"]; ?></td>
+                                <td><?php echo $row["name"]; ?></td>
                                 <td>
                                                 
                                 <!-- Update button -->
