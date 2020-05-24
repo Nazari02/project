@@ -9,7 +9,7 @@ $result = mysqli_query($connection,"SELECT * FROM purchase");
 // Delete a record
 
 if (isset($_GET['del'])) {
-	$id = $_GET['del'];
+	$pur_id = $_GET['del'];
 	mysqli_query($connection, "DELETE FROM purchase WHERE pur_id=$pur_id");
     $_SESSION['message'] = "Address deleted!";
     header('location: inven_item_list.php');
