@@ -2,18 +2,21 @@
 <?php
 include "db_connect.php";
 $result = mysqli_query($connection,"SELECT * FROM purchase");
-//$query = "SELECT * FROM purchase WHERE inven_id='" . $inven_id . "'";
-//$result = mysqli_query($connection,$query);
+
+ //Update Process 
+ if(count($_POST)>0) {
+    mysqli_query($connection,"UPDATE purchase SET date='" . $_POST['date'] . "',category='" . $_POST['category'] . "',item='" . $_POST['item'] . "',quantity='" . $_POST['quantity'] . "',unit_price='" . $_POST['unit_price'] . "',total_price='" . $_POST['total_price'] . "',expense='" . $_POST['expense'] . "',unit_price_expense='" . $_POST['unit_price_expense'] . "',total_final_price='" . $_POST['total_final_price'] . "' WHERE pur_id='" . $_POST['pur_id'] . "'");
+    $message = "Record Modified Successfully";
+    }
+    $result = mysqli_query($connection,"SELECT * FROM purchase WHERE pur_id='" . $_GET['pur_id'] . "'");
+    $row= mysqli_fetch_array($result);
+    
+    if(!empty($message))
+            header('Location: inven_item_list.php');
+        
+?>
 
 
-// Delete a record
-
-if (isset($_GET['del'])) {
-	$id = $_GET['del'];
-	mysqli_query($connection, "DELETE FROM purchase WHERE pur_id=$pur_id");
-    $_SESSION['message'] = "Address deleted!";
-    header('location: inven_item_list.php');
-}?>
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -25,7 +28,7 @@ if (isset($_GET['del'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="fontiran.com:license" content="Y68A9">
     <link rel="icon" href="../build/images/favicon.ico" type="image/ico"/>
-    <title> گدام </title>
+    <title>ویرایش گدام</title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -88,10 +91,10 @@ if (isset($_GET['del'])) {
                             <ul class="nav child_menu">
                                     <li><a href="customer.php">مشتری</a></li>
                                     <li><a href="supplier.php">تهیه کننده</a></li>
-                                    <li><a href="inventory.php">گدام</a></li>
+                                    <li><a href="inventory">گدام</a></li>
                                     <li><a href="inven_item_list.php">لست اجناس</a></li>
                                     <li><a href="purchase_insert.php">خریداری</a></li>
-                                    <li><a href="transaction.php">معاملات</a></li>
+                                    <li><a href="transaction">معاملات</a></li>
                             </ul>
 
                             </li>
@@ -295,8 +298,8 @@ if (isset($_GET['del'])) {
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>لست گدام
-                        
+                        <h2>ویرایش گدام
+                            
                         </h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -317,77 +320,112 @@ if (isset($_GET['del'])) {
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <p class="text-muted font-13 m-b-30">
-                            جدول زیر قابلیت حذف تغییر و یا علاوه کردن را دارد. 
-                        </p>
-                       
-                        <?php
-                                    if (mysqli_num_rows($result) > 0) {
-                                ?> 
-                        <table id="datatable" class="table table-striped table-bordered">
-                            <thead>
-                            <tr>
-                                <th>تاریخ</th>
-                                <th>کتگوری</th>
-                                <th>اسم جنس</th>
-                                <th>مقدار</th>
-                                <th>قیمت اصلی ف.و.</th>
-                                <th>قیمت اصلی مجموعی</th>
-                                <th>مصارفات</th>
-                                <th>قیمت ف.و.</th>
-                                <th>قیمت مجموعی</th>
-                                <th>گدام</th>
-                                <th>عملیات</th>
-                            </tr>
-                            </thead>
-                            <?php
-                                        $i=0;
-                                        while($row = mysqli_fetch_array($result)) {
-                                        ?>
+                        
+                    <form method="post" action="#" class="form-horizontal form-label-left" novalidate>
+
+                            <span class="section">اطلاعات شخصی</span>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">شماره <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="pur_id" value="<?php echo $row['pur_id']?>" class="form-control col-md-7 col-xs-12"
+                                           required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">تاریخ <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="date" value="<?php echo $row['date']?>" class="form-control col-md-7 col-xs-12"
+                                           required="required" type="date">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">کتگوری <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="category" value="<?php echo $row['category']; ?>" class="form-control col-md-7 col-xs-12"
+                                           required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">اسم جنس <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="item" value="<?php echo $row['item']?>" class="form-control col-md-7 col-xs-12"
+                                            required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">مقدار <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="quantity" value="<?php echo $row['quantity']?>" class="form-control col-md-7 col-xs-12"
+                                            required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">قیمت ف. و. <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="unit_price" value="<?php echo $row['unit_price']?>" class="form-control col-md-7 col-xs-12"
+                                            required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">قیمت مجموعی <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="total_price" value="<?php echo $row['total_price']?>" class="form-control col-md-7 col-xs-12"
+                                            required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">مصارف <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="expense" value="<?php echo $row['expense']?>" class="form-control col-md-7 col-xs-12"
+                                            required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">قیمت ف.و. <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="unit_price_expense" value="<?php echo $row['unit_price_expense']?>" class="form-control col-md-7 col-xs-12"
+                                            required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">قیمت مجموعی <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="total_final_price" value="<?php echo $row['total_final_price']?>" class="form-control col-md-7 col-xs-12"
+                                            required="required" type="text">
+                                </div>
+                            </div>
+
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <button type="button" class="btn btn-primary">انصراف</button>
+                                    <button id="send" type="submit" name="submit" class="btn btn-success">ذخیره</button>
+                                </div>
+                            </div>
+                        </form>
 
 
-                            <tbody>
-                            <tr>
-                                <td><?php echo $row["date"]; ?></td>
-                                <td><?php echo $row["category"]; ?></td>
-                                <td><?php echo $row["item"]; ?></td>
-                                <td><?php echo $row["quantity"]; ?></td>
-                                <td><?php echo $row["unit_price"]; ?></td>
-                                <td><?php echo $row["total_price"]; ?></td>
-                                <td><?php echo $row["expense"]; ?></td>
-                                <td><?php echo $row["unit_price_expense"]; ?></td>
-                                <td><?php echo $row["total_final_price"]; ?></td>
-                                <td><?php echo $row["item"]; ?></td>
-                                <td>
-                                                
-                                <!-- Update button -->
-                                                
-                                <a href="inven_item_list_update.php?pur_id=<?php echo $row['pur_id']; ?>">
-                                <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
-                                data-target=".bs-example-modal-lg"><i class="fa fa-edit"></i> ویرایش
-                                </button></a>
-
-                                <!-- Delete button-->                                               
-                                <a href="inven_item_list.php?del=<?php echo $row['pur_id']; ?>">         
-						        <button type="button" class="btn btn-danger btn-block" data-toggle="modal" 
-                                data-target=".bs-example-modal-lg">حذف
-                                </button></a>
-                                
-
-                                </td>
-                            </tr>
-                            </tbody>
-                            <?php
-                                        $i++;
-                                        }
-                                        ?>
-                        </table>
-                        <?php
-                                    }
-                                    else{
-                                        echo "No result found";
-                                    }
-                                    ?>
                     </div>
                 </div>
             </div>

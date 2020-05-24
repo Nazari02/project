@@ -364,7 +364,7 @@ if (isset($_GET['del'])) {
                                 <!-- View button -->
                                                 
                                 <a href="inven_item_list.php?inven_id=<?php echo $row['inven_id']; ?>">
-                                <button type="button" class="btn btn-default" data-toggle="modal"
+                                <button type="button" class="btn btn-default " data-toggle="modal"
                                 data-target=".bs-example-modal-lg"> مشاهده
                                 </button></a>
 
