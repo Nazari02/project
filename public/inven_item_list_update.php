@@ -1,14 +1,14 @@
 
 <?php
 include "db_connect.php";
-$result = mysqli_query($connection,"SELECT * FROM purchase");
+$result = mysqli_query($connection,"SELECT c.* , p.* FROM purchase c, inventory p WHERE c.inven_id=p.inven_id");
 
  //Update Process 
  if(count($_POST)>0) {
-    mysqli_query($connection,"UPDATE purchase SET date='" . $_POST['date'] . "',category='" . $_POST['category'] . "',item='" . $_POST['item'] . "',quantity='" . $_POST['quantity'] . "',unit_price='" . $_POST['unit_price'] . "',total_price='" . $_POST['total_price'] . "',expense='" . $_POST['expense'] . "',unit_price_expense='" . $_POST['unit_price_expense'] . "',total_final_price='" . $_POST['total_final_price'] . "' WHERE pur_id='" . $_POST['pur_id'] . "'");
+    mysqli_query($connection,"UPDATE purchase SET date='" . $_POST['date'] . "',category='" . $_POST['category'] . "',item='" . $_POST['item'] . "',quantity='" . $_POST['quantity'] . "', unit_price='" . $_POST['unit_price'] . "',total_price='" . $_POST['total_price'] . "',expense='" . $_POST['expense'] . "',unit_price_expense='" . $_POST['unit_price_expense'] . "',total_final_price='" . $_POST['total_final_price'] . "' WHERE pur_id='" . $_POST['pur_id'] . "'");
     $message = "Record Modified Successfully";
     }
-    $result = mysqli_query($connection,"SELECT * FROM purchase WHERE pur_id='" . $_GET['pur_id'] . "'");
+    $result = mysqli_query($connection,"SELECT c.* , p.* FROM purchase c, inventory p WHERE pur_id='" . $_GET['pur_id'] . "'");
     $row= mysqli_fetch_array($result);
     
     if(!empty($message))
@@ -334,6 +334,35 @@ $result = mysqli_query($connection,"SELECT * FROM purchase");
                                            required="required" type="text">
                                 </div>
                             </div>
+                            
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">نام گدام <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                <select class="form-control col-md-7 col-xs-12" name="inventory" id="">
+                                    <?php
+                                        do {
+                                    ?>
+                                                <option value="<?php echo $row ["inven_id"]; ?>"><?php echo $row["name"] ?></option>
+
+                                                <?php
+                                         
+                                        }
+
+                                 while($row = mysqli_fetch_assoc($result));
+                                        ?>
+                                         
+                                         
+
+                                         </select>
+
+                              </div>
+
+                            </div>
+                            
+
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">تاریخ <span
                                         class="required">*</span>
@@ -343,6 +372,7 @@ $result = mysqli_query($connection,"SELECT * FROM purchase");
                                            required="required" type="date">
                                 </div>
                             </div>
+                            
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">کتگوری <span
                                         class="required">*</span>
@@ -413,9 +443,10 @@ $result = mysqli_query($connection,"SELECT * FROM purchase");
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input id="name" name="total_final_price" value="<?php echo $row['total_final_price']?>" class="form-control col-md-7 col-xs-12"
                                             required="required" type="text">
+                                            
                                 </div>
                             </div>
-
+                            
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-3">

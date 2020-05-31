@@ -7,7 +7,7 @@ $result = mysqli_query($connection,"SELECT * FROM inventory");
 // Delete a record
 
 if (isset($_GET['del'])) {
-	$id = $_GET['del'];
+	$inven_id = $_GET['del'];
 	mysqli_query($connection, "DELETE FROM inventory WHERE inven_id=$inven_id");
     $_SESSION['message'] = "Address deleted!";
     header('location: inventory.php');
@@ -350,7 +350,7 @@ if (isset($_GET['del'])) {
                                                 
                                 <!-- Update button -->
                                                 
-                                <a href="inven_update.php?id=<?php echo $row['inven_id']; ?>">
+                                <a href="inven_update.php?inven_id=<?php echo $row['inven_id']; ?>">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target=".bs-example-modal-lg"><i class="fa fa-edit"></i> ویرایش
                                 </button></a>

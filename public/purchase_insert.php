@@ -348,7 +348,7 @@ if(isset($_POST['submit']))
 
                             
 
-                    <div class="item form-group">
+                                <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">گدام<span
                                         class="required">*</span>
                                 </label>
@@ -374,6 +374,7 @@ if(isset($_POST['submit']))
                               </div>
                             </div>
 
+                            
                             
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">تاریخ <span
