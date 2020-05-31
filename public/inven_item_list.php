@@ -332,11 +332,10 @@ if (isset($_GET['del'])) {
                                 <th>کتگوری</th>
                                 <th>اسم جنس</th>
                                 <th>مقدار</th>
-                                <th>قیمت اصلی ف.و.</th>
-                                <th>قیمت اصلی مجموعی</th>
-                                <th>مصارفات</th>
-                                <th>قیمت ف.و.</th>
-                                <th>قیمت مجموعی</th>
+                                <th>قیمت</th>
+                                <th>مصارفات</th>                                
+                                <th>قیمت نهایی</th>
+                                <th>قیمت فروش</th>
                                 <th>گدام</th>
                                 <th>عملیات</th>
                             </tr>
@@ -353,11 +352,10 @@ if (isset($_GET['del'])) {
                                 <td><?php echo $row["category"]; ?></td>
                                 <td><?php echo $row["item"]; ?></td>
                                 <td><?php echo $row["quantity"]; ?></td>
-                                <td><?php echo $row["unit_price"]; ?></td>
-                                <td><?php echo $row["total_price"]; ?></td>
+                                <td><?php echo $row["price"]; ?></td>
                                 <td><?php echo $row["expense"]; ?></td>
-                                <td><?php echo $row["unit_price_expense"]; ?></td>
-                                <td><?php echo $row["total_final_price"]; ?></td>
+                                <td><?php echo $row["final_price"]; ?></td>
+                                <td><?php echo $row["sell_price"]; ?></td>
                                 <td><?php echo $row["name"]; ?></td>
                                 <td>
                                                 

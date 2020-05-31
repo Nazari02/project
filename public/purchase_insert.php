@@ -15,17 +15,16 @@ if(isset($_POST['submit']))
      //$address2 = $_POST['address2'];
      $item = $_POST['item'];
      $quantity = $_POST['quantity'];
-     $unit_price = $_POST['unit_price'];
-     $total_price = $_POST['total_price'];
+     $price = $_POST['price'];
      $expense = $_POST['expense'];
-     $unit_price_expense = $_POST['unit_price_expense'];
-     $total_final_price = $_POST['total_final_price'];
+     $final_price = $_POST['final_price'];
+     $sell_price = $_POST['sell_price'];
      $inventory = $_POST['inventory'];
 
      //$inven_id = $_GET['inven_id'];
 
-     $sql = "INSERT INTO purchase (date,category,item,quantity,unit_price,total_price,expense,unit_price_expense,total_final_price,inven_id)
-     VALUES ('$date','$category','$item','$quantity','$unit_price','$total_price','$expense','$unit_price_expense','$total_final_price','$inventory')";
+     $sql = "INSERT INTO purchase (date,category,item,quantity,price,expense,final_price,sell_price,inven_id)
+     VALUES ('$date','$category','$item','$quantity','$price','$expense','$final_price','$sell_price','$inventory')";
  
      if (mysqli_query($connection, $sql)) {
         header('Location:purchase_insert.php');
@@ -413,26 +412,16 @@ if(isset($_POST['submit']))
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">قیمت اصلی واحد <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">قیمت <span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="email" id="email" name="unit_price" required="required"
+                                    <input type="text" id="name" name="price" required="required"
                                            class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">قیمت اصلی مجموعی <span
-                                        class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="name" name="total_price" class="form-control col-md-7 col-xs-12"
-                                         required="required" type="text">
-                                </div>
-                            </div>
-                            
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">مصارف <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">مصارفات <span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -442,21 +431,21 @@ if(isset($_POST['submit']))
                             </div>
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">قیمت نهایی واحد <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">قیمت نهایی <span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="name" name="unit_price_expense" class="form-control col-md-7 col-xs-12"
+                                    <input id="name" name="final_price" class="form-control col-md-7 col-xs-12"
                                          required="required" type="text">
                                 </div>
                             </div>
                             
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">قیمت نهایی مجموعی <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">قیمت فروش <span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="name" name="total_final_price" class="form-control col-md-7 col-xs-12"
+                                    <input id="name" name="sell_price" class="form-control col-md-7 col-xs-12"
                                          required="required" type="text">
                                 </div>
                             </div>
