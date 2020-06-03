@@ -5,7 +5,7 @@ $result = mysqli_query($connection,"SELECT c.* , p.* FROM purchase c, inventory 
 
  //Update Process 
  if(count($_POST)>0) {
-    mysqli_query($connection,"UPDATE purchase SET date='" . $_POST['date'] . "',category='" . $_POST['category'] . "', item='" . $_POST['item'] . "',quantity='" . $_POST['quantity'] . "', price='" . $_POST['price'] . "'expense='" . $_POST['expense'] . "', final_price='" . $_POST['final_price'] . "', sell_price='" . $_POST['sell_price'] . "', inven_id='" . $_POST['inven_id'] . "' WHERE pur_id='" . $_POST['pur_id'] . "'");
+    mysqli_query($connection,"UPDATE purchase SET location='" . $_POST['location'] . "',date='" . $_POST['date'] . "',category='" . $_POST['category'] . "', item='" . $_POST['item'] . "',quantity='" . $_POST['quantity'] . "', price='" . $_POST['price'] . "'expense='" . $_POST['expense'] . "', final_price='" . $_POST['final_price'] . "', sell_price='" . $_POST['sell_price'] . "' WHERE pur_id='" . $_POST['pur_id'] . "'");
     $message = "Record Modified Successfully";
     }
     $result = mysqli_query($connection,"SELECT c.* , p.* FROM purchase c, inventory p WHERE pur_id='" . $_GET['pur_id'] . "'");
@@ -335,7 +335,16 @@ $result = mysqli_query($connection,"SELECT c.* , p.* FROM purchase c, inventory 
                                 </div>
                             </div>
                             
-                            
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> گدام <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="location" value="<?php echo $row['location']?>" class="form-control col-md-7 col-xs-12"
+                                           required="required" type="text">
+                                </div>
+                            </div>
+
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">تاریخ <span
                                         class="required">*</span>

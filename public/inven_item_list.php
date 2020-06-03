@@ -26,7 +26,7 @@ if (isset($_GET['del'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="fontiran.com:license" content="Y68A9">
     <link rel="icon" href="../build/images/favicon.ico" type="image/ico"/>
-    <title> گدام </title>
+    <title> اجناس </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -247,8 +247,8 @@ if (isset($_GET['del'])) {
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>گدام
-                    <small>محتویات این صفحه مربوط گدام میباشد.</small>
+                <h3>اجناس
+                    <small>محتویات این صفحه مربوط اجناس میباشد.</small>
                 </h3>
             </div>
 
@@ -296,7 +296,7 @@ if (isset($_GET['del'])) {
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>لست گدام
+                        <h2>لست اجناس
                         
                         </h2>
                         <ul class="nav navbar-right panel_toolbox">
@@ -319,7 +319,7 @@ if (isset($_GET['del'])) {
                     </div>
                     <div class="x_content">
                         <p class="text-muted font-13 m-b-30">
-                            جدول زیر قابلیت حذف تغییر و یا علاوه کردن را دارد. 
+                            جدول زیر قابلیت حذف و تغییر را دارد. 
                         </p>
                        
                         <?php
@@ -356,7 +356,7 @@ if (isset($_GET['del'])) {
                                 <td><?php echo $row["expense"]; ?></td>
                                 <td><?php echo $row["final_price"]; ?></td>
                                 <td><?php echo $row["sell_price"]; ?></td>
-                                <td><?php echo $row["name"]; ?></td>
+                                <td><?php echo $row["location"]; ?></td>
                                 <td>
                                                 
                                 <!-- Update button -->
