@@ -25,3 +25,7 @@
                               </div>
 
                             </div>
+
+
+
+                            ,category='" . $_POST['category'] . "', item='" . $_POST['item'] . "',quantity='" . $_POST['quantity'] . "', price='" . $_POST['price'] . "'expense='" . $_POST['expense'] . "', final_price='" . $_POST['final_price'] . "', sell_price='" . $_POST['sell_price'] . "', inven_id='" . $_POST['inven_id'] . "'
