@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="fontiran.com:license" content="Y68A9">
     <link rel="icon" href="../build/images/favicon.ico" type="image/ico"/>
-    <title>دشبورد </title>
+    <title>گلوبل اکسپرت </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -969,9 +969,7 @@
         <footer class="hidden-print">
         <div class="d-flex align-items-center justify-content-between "> 
             
-                <a href="#">پالیسی حریم خصوصی</a>
-                &middot;
-                <a href="#">قواعد و قوانین</a>
+                
                 <div class="pull left-align">   
                 &copy; گلوبل اکسپرت
                 </div>

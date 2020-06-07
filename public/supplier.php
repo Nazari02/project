@@ -245,7 +245,7 @@ if (isset($_GET['del'])) {
         <div class="page-title">
             <div class="title_left">
                 <h3>تهیه کننده
-                    <small>محتویات این صفحه مربوط حساب تهیه کنندگان میباشد.</small>
+                    
                 </h3>
             </div>
 
@@ -254,7 +254,7 @@ if (isset($_GET['del'])) {
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="جست و جو برای...">
                         <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">برو!</button>
+                      <button class="btn btn-default" type="button">برو</button>
                     </span>
                     </div>
                 </div>
@@ -267,9 +267,7 @@ if (isset($_GET['del'])) {
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>مثال پیش‌فرض
-                            <small>کاربران</small>
-                        </h2>
+                        
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -319,9 +317,7 @@ if (isset($_GET['del'])) {
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <p class="text-muted font-13 m-b-30">
-                            جدول زیر قابلیت حذف تغییر و یا علاوه کردن تهیه کنندگان را دارد. 
-                        </p>
+                        
                        
                         <?php
                                     if (mysqli_num_rows($result) > 0) {
@@ -391,9 +387,7 @@ if (isset($_GET['del'])) {
         <footer class="hidden-print">
         <div class="d-flex align-items-center justify-content-between "> 
             
-                <a href="#">پالیسی حریم خصوصی</a>
-                &middot;
-                <a href="#">قواعد و قوانین</a>
+                
                 <div class="pull left-align">   
                 &copy; گلوبل اکسپرت
             

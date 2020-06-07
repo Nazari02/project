@@ -250,7 +250,7 @@ $result = mysqli_query($connection,"SELECT * FROM customer");
         <div class="page-title">
             <div class="title_left">
                 <h3>مشتری
-                    <small>محتویات این صفحه مربوط حساب مشتریان میباشد.</small>
+                   
                 </h3>
             </div>
 
@@ -259,7 +259,7 @@ $result = mysqli_query($connection,"SELECT * FROM customer");
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="جست و جو برای...">
                         <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">برو!</button>
+                      <button class="btn btn-default" type="button">برو</button>
                     </span>
                     </div>
                 </div>
@@ -272,9 +272,7 @@ $result = mysqli_query($connection,"SELECT * FROM customer");
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>مثال پیش‌فرض
-                            <small>کاربران</small>
-                        </h2>
+                        
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -298,7 +296,7 @@ $result = mysqli_query($connection,"SELECT * FROM customer");
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>اضافه کردن مشتری جدید
+                        <h2>ویرایش مشتری 
                             
                         </h2>
                         <ul class="nav navbar-right panel_toolbox">
@@ -323,7 +321,7 @@ $result = mysqli_query($connection,"SELECT * FROM customer");
                         
                     <form method="post" action="#" class="form-horizontal form-label-left" novalidate>
 
-                            <span class="section">اطلاعات شخصی</span>
+                           
 
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">شماره <span
@@ -419,9 +417,7 @@ $result = mysqli_query($connection,"SELECT * FROM customer");
         <footer class="hidden-print">
         <div class="d-flex align-items-center justify-content-between "> 
             
-                <a href="#">پالیسی حریم خصوصی</a>
-                &middot;
-                <a href="#">قواعد و قوانین</a>
+                
                 <div class="pull left-align">   
                 &copy; گلوبل اکسپرت
             

@@ -39,7 +39,7 @@ if(isset($_POST['submit']))
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="fontiran.com:license" content="Y68A9">
     <link rel="icon" href="../build/images/favicon.ico" type="image/ico"/>
-    <title>اضافه کردن به گدام </title>
+    <title> گدام </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -261,7 +261,7 @@ if(isset($_POST['submit']))
         <div class="page-title">
             <div class="title_left">
                 <h3>گدام
-                    <small>محتویات این صفحه مربوط گدام میباشد.</small>
+                    
                 </h3>
             </div>
 
@@ -270,7 +270,7 @@ if(isset($_POST['submit']))
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="جست و جو برای...">
                         <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">برو!</button>
+                      <button class="btn btn-default" type="button">برو</button>
                     </span>
                     </div>
                 </div>
@@ -283,9 +283,7 @@ if(isset($_POST['submit']))
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>مثال پیش‌فرض
-                            <small>کاربران</small>
-                        </h2>
+                        
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -334,7 +332,7 @@ if(isset($_POST['submit']))
                         
                     <form method="post" action="#" class="form-horizontal form-label-left" novalidate>
 
-                            <span class="section">اطلاعات شخصی</span>
+                            
 
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">نام<span
@@ -377,9 +375,7 @@ if(isset($_POST['submit']))
         <footer class="hidden-print">
         <div class="d-flex align-items-center justify-content-between "> 
             
-                <a href="#">پالیسی حریم خصوصی</a>
-                &middot;
-                <a href="#">قواعد و قوانین</a>
+                
                 <div class="pull left-align">   
                 &copy; گلوبل اکسپرت
             

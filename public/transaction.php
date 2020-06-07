@@ -236,7 +236,7 @@ $result = mysqli_query($connection,"SELECT * FROM transaction");
         <div class="page-title">
             <div class="title_left">
                 <h3>معاملات
-                    <small>محتویات این صفحه مربوط معاملات میباشد.</small>
+                    
                 </h3>
             </div>
 
@@ -245,7 +245,7 @@ $result = mysqli_query($connection,"SELECT * FROM transaction");
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="جست و جو برای...">
                         <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">برو!</button>
+                      <button class="btn btn-default" type="button">برو</button>
                     </span>
                     </div>
                 </div>
@@ -258,9 +258,7 @@ $result = mysqli_query($connection,"SELECT * FROM transaction");
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>مثال پیش‌فرض
-                            <small>کاربران</small>
-                        </h2>
+                        
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -306,9 +304,7 @@ $result = mysqli_query($connection,"SELECT * FROM transaction");
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <p class="text-muted font-13 m-b-30">
-                            جدول زیر معاملات سیستم را نشان میدهد. 
-                        </p>
+                        
                        
                         <?php
                                     if (mysqli_num_rows($result) > 0) {
@@ -365,9 +361,7 @@ $result = mysqli_query($connection,"SELECT * FROM transaction");
         <footer class="hidden-print">
         <div class="d-flex align-items-center justify-content-between "> 
             
-                <a href="#">پالیسی حریم خصوصی</a>
-                &middot;
-                <a href="#">قواعد و قوانین</a>
+                
                 <div class="pull left-align">   
                 &copy; گلوبل اکسپرت
             
