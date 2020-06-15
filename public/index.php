@@ -111,6 +111,7 @@ if($curl)
                             </li>
                             <li><a><i class="fa fa-home"></i> عملیات محاسباتی <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
+                                    <li><a href="barcode.php">بارکود</a></li>
                                     <li><a href="#">کوتیشن</a></li>
                                     <li><a href="#">صورت حساب</a></li>
                                     <li><a href="#">پرداخت</a></li>

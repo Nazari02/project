@@ -5,7 +5,7 @@ $result = mysqli_query($connection,"SELECT c.* , p.* FROM purchase c, inventory 
 
  //Update Process 
  if(count($_POST)>0) {
-    mysqli_query($connection,"UPDATE purchase SET date='" . $_POST['date'] . "', category='" . $_POST['category'] . "', item='" . $_POST['item'] . "', quantity='" . $_POST['quantity'] . "', price='" . $_POST['price'] . "', expense='" . $_POST['expense'] . "', final_price='" . $_POST['final_price'] . "', sell_price='" . $_POST['sell_price'] . "'WHERE pur_id='" . $_POST['pur_id'] . "'"); 
+    mysqli_query($connection,"UPDATE purchase SET date='" . $_POST['date'] . "', category='" . $_POST['category'] . "', item='" . $_POST['item'] . "', quantity='" . $_POST['quantity'] . "', unit='" . $_POST['unit'] . "', price='" . $_POST['price'] . "', tax='" . $_POST['tax'] . "', transport='" . $_POST['transport'] . "', commission='" . $_POST['commission'] . "',broker='" . $_POST['broker'] . "',expense='" . $_POST['expense'] . "', final_price='" . $_POST['final_price'] . "', sell_price='" . $_POST['sell_price'] . "'WHERE pur_id='" . $_POST['pur_id'] . "'"); 
     $message = "Record Modified Successfully";
     }
     $result = mysqli_query($connection,"SELECT c.* , p.* FROM purchase c, inventory p WHERE pur_id='" . $_GET['pur_id'] . "'");
@@ -354,11 +354,11 @@ $result = mysqli_query($connection,"SELECT c.* , p.* FROM purchase c, inventory 
                             </div>
                             
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">کتگوری <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">نوعیت خرید <span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="name" name="category" value="<?php echo $row['category']; ?>" class="form-control col-md-7 col-xs-12"
+                                    <input id="name" name="category" value="<?php echo $row['category']; ?> " class="form-control col-md-7 col-xs-12"
                                            required="required" type="text">
                                 </div>
                             </div>
@@ -379,6 +379,15 @@ $result = mysqli_query($connection,"SELECT c.* , p.* FROM purchase c, inventory 
                                     <input id="name" name="quantity" value="<?php echo $row['quantity']?>" class="form-control col-md-7 col-xs-12"
                                             required="required" type="text">
                                 </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">واحد <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="unit" value="<?php echo $row['unit']?>" class="form-control col-md-7 col-xs-12"
+                                            required="required" type="text">
+                                </div>
                             </div>                   
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">قیمت <span
@@ -386,6 +395,42 @@ $result = mysqli_query($connection,"SELECT c.* , p.* FROM purchase c, inventory 
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input id="name" name="price" value="<?php echo $row['price']?>" class="form-control col-md-7 col-xs-12"
+                                            required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">مالیه <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="tax" value="<?php echo $row['tax']?>" class="form-control col-md-7 col-xs-12"
+                                            required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">ترانسپورت <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="transport" value="<?php echo $row['transport']?>" class="form-control col-md-7 col-xs-12"
+                                            required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">کمیشن <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="commission" value="<?php echo $row['commission']?>" class="form-control col-md-7 col-xs-12"
+                                            required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">کمیشن کار <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="broker" value="<?php echo $row['broker']?>" class="form-control col-md-7 col-xs-12"
                                             required="required" type="text">
                                 </div>
                             </div>

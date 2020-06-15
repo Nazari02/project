@@ -1,20 +1,15 @@
 
 <?php
 include "db_connect.php";
-$result = mysqli_query($connection,"SELECT c.* , p.* FROM purchase c, inventory p WHERE c.inven_id=p.inven_id");
-//$result = mysqli_query($connection,"SELECT * FROM inventory");
-//$query = "SELECT * FROM purchase WHERE inven_id='" . $inven_id . "'";
-//$result = mysqli_query($connection,$query);
+
+$result = mysqli_query($connection,"SELECT * FROM purchase");
+
+$row = mysqli_fetch_assoc($result);
+            
+
+?>
 
 
-// Delete a record
-
-if (isset($_GET['del'])) {
-	$pur_id = $_GET['del'];
-	mysqli_query($connection, "DELETE FROM purchase WHERE pur_id=$pur_id");
-    $_SESSION['message'] = "Address deleted!";
-    header('location: inven_item_list.php');
-}?>
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -26,7 +21,7 @@ if (isset($_GET['del'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="fontiran.com:license" content="Y68A9">
     <link rel="icon" href="../build/images/favicon.ico" type="image/ico"/>
-    <title> اجناس </title>
+    <title>بارکود </title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -247,7 +242,7 @@ if (isset($_GET['del'])) {
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>اجناس
+                <h3>بارکود
                     
                 </h3>
             </div>
@@ -294,8 +289,8 @@ if (isset($_GET['del'])) {
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>لست اجناس
-                        
+                        <h2>ایجاد بارکود برای اجناس
+                            
                         </h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -317,82 +312,76 @@ if (isset($_GET['del'])) {
                     </div>
                     <div class="x_content">
                         
-                       
-                        <?php
-                                    if (mysqli_num_rows($result) > 0) {
-                                ?> 
-                        <table id="datatable" class="table table-striped table-bordered">
-                            <thead>
-                            <tr>
-                                <th>تاریخ</th>
-                                <th>نوعیت خرید</th>
-                                <th>اسم جنس</th>
-                                <th>مقدار</th>
-                                <th>واحد</th>
-                                <th>قیمت</th>
-                                <th>مالیه</th>
-                                <th>ترانسپورت</th>
-                                <th>کمیشن</th>
-                                <th>کمیشن کار</th>
-                                <th>مصارفات</th>                                
-                                <th>قیمت نهایی</th>
-                                <th>قیمت فروش</th>
-                                <th>گدام</th>
-                                <th>عملیات</th>
-                            </tr>
-                            </thead>
-                            <?php
-                                        $i=0;
-                                        while($row = mysqli_fetch_array($result)) {
-                                        ?>
+                    <form method="post" action="#" class="form-horizontal form-label-left" novalidate>
 
+                            
 
-                            <tbody>
-                            <tr>
-                                <td><?php echo $row["date"]; ?></td>
-                                <td><?php echo $row["category"]; ?></td>
-                                <td><?php echo $row["item"]; ?></td>
-                                <td><?php echo $row["quantity"]; ?></td>
-                                <td><?php echo $row["unit"]; ?></td>
-                                <td><?php echo $row["price"]; ?></td>
-                                <td><?php echo $row["tax"]; ?></td>
-                                <td><?php echo $row["transport"]; ?></td>
-                                <td><?php echo $row["commission"]; ?></td>
-                                <td><?php echo $row["broker"]; ?></td>
-                                <td><?php echo $row["expense"]; ?></td>
-                                <td><?php echo $row["final_price"]; ?></td>
-                                <td><?php echo $row["sell_price"]; ?></td>
-                                <td><?php echo $row["location"]; ?></td>
-                                <td>
-                                                
-                                <!-- Update button -->
-                                                
-                                <a href="inven_item_list_update.php?pur_id=<?php echo $row['pur_id']; ?>">
-                                <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
-                                data-target=".bs-example-modal-lg"><i class="fa fa-edit"></i> ویرایش
-                                </button></a>
+                                <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">اسم جنس<span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
 
-                                <!-- Delete button-->                                               
-                                <a href="inven_item_list.php?del=<?php echo $row['pur_id']; ?>">         
-						        <button type="button" class="btn btn-danger btn-block" data-toggle="modal" 
-                                data-target=".bs-example-modal-lg">حذف
-                                </button></a>
-                                
-
-                                </td>
-                            </tr>
-                            </tbody>
-                            <?php
-                                        $i++;
-                                        }
-                                        ?>
-                        </table>
-                        <?php
-                                    }
-                                    else{
-                                        echo "No result found";
-                                    }
+                                <select class="form-control col-md-7 col-xs-12" name="purchase" id="">
+                                    <?php
+                                        do {
                                     ?>
+                                                <option value="<?php echo $row ["pur_id"]; ?>"><?php echo $row["item"] ?></option>
+
+                                         
+                                         
+                                         <?php
+                                         
+                                        }
+
+                                        while   ($row = mysqli_fetch_assoc($result));
+                                        ?>
+
+                                </select>
+
+                              </div>
+                            </div>
+
+                            
+                            
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> تاریخ خریداری <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="date" class="form-control col-md-7 col-xs-12"
+                                            required="required" type="date">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> نوع بارکود <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="category" class="form-control col-md-7 col-xs-12"
+                                          required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">نمایش بارکود <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="name" name="category" class="form-control col-md-7 col-xs-12"
+                                          required="required" type="text">
+                                </div>
+                            </div>
+
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <button type="submit" class="btn btn-primary">انصراف</button>
+                                    <button id="send" type="submit" name="submit" class="btn btn-success">ایجاد بارکود</button>
+                                </div>
+                            </div>
+                        </form>
+
+
                     </div>
                 </div>
             </div>

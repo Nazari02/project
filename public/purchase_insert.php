@@ -15,7 +15,12 @@ if(isset($_POST['submit']))
      //$address2 = $_POST['address2'];
      $item = $_POST['item'];
      $quantity = $_POST['quantity'];
+     $unit = $_POST['unit'];
      $price = $_POST['price'];
+     $tax = $_POST['tax'];
+     $transport = $_POST['transport'];
+     $commission = $_POST['commission'];
+     $broker = $_POST['broker'];
      $expense = $_POST['expense'];
      $final_price = $_POST['final_price'];
      $sell_price = $_POST['sell_price'];
@@ -23,8 +28,8 @@ if(isset($_POST['submit']))
 
      //$inven_id = $_GET['inven_id'];
 
-     $sql = "INSERT INTO purchase (date,category,item,quantity,price,expense,final_price,sell_price,inven_id)
-     VALUES ('$date','$category','$item','$quantity','$price','$expense','$final_price','$sell_price','$inventory')";
+     $sql = "INSERT INTO purchase (date,category,item,quantity,unit,price,tax, transport,commission,broker,expense,final_price,sell_price,inven_id)
+     VALUES ('$date','$category','$item','$quantity','$unit','$price','$tax','$transport','$commission','$broker','$expense','$final_price','$sell_price','$inventory')";
  
      if (mysqli_query($connection, $sql)) {
         header('Location:purchase_insert.php');
@@ -50,6 +55,8 @@ if(isset($_POST['submit']))
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="fontiran.com:license" content="Y68A9">
     <link rel="icon" href="../build/images/favicon.ico" type="image/ico"/>
+    <meta http-equiv="Content-Language" content="fa" />
+
     <title>خریداری </title>
 
     <!-- Bootstrap -->
@@ -383,12 +390,17 @@ if(isset($_POST['submit']))
                                 </div>
                             </div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> کتگوری <span
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> نوعیت خرید <span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="name" name="category" class="form-control col-md-7 col-xs-12"
-                                          required="required" type="text">
+                                <select id="name" name="category" class="form-control col-md-7 col-xs-12">
+                                    <option value="واگون">واگون</option>
+                                    <option value="موتر">موتر</option>
+                                    <option value=" هوا  ">        هوا</option>       
+                                </select>
+                                    <!-- <input id="name" name="category" class="form-control col-md-7 col-xs-12"
+                                          required="required" type="text"> -->
                                 </div>
                             </div>
                             <div class="item form-group">
@@ -410,11 +422,58 @@ if(isset($_POST['submit']))
                                 </div>
                             </div>
                             <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> واحد <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                <select id="name" name="unit" class="form-control col-md-7 col-xs-12">
+                                    <option value="کارتن">کارتن</option>
+                                    <option value="دانه">دانه</option>       
+                                </select>                           
+                                </div>
+                            </div>
+                            <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">قیمت <span
                                         class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" id="name" name="price" required="required"
+                                           class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">مالیه <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="name" name="tax" required="required"
+                                           class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">ترانسپورت <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="name" name="transport" required="required"
+                                           class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">کمیشن <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="name" name="commission" required="required"
+                                           class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">کمیشن کار <span
+                                        class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="name" name="broker" required="required"
                                            class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
